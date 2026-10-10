@@ -6,13 +6,64 @@
   <title>معاينة الموقع</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    html, body { height: 100%; overflow: hidden; background: #fff; }
+    html, body { height: 100%; }
+    body {
+      background: #0d1117;
+      font-family: system-ui, sans-serif;
+      display: flex;
+      flex-direction: column;
+    }
+    .bar {
+      background: #161b22;
+      color: #e6edf3;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-bottom: 1px solid #30363d;
+      flex-wrap: wrap;
+    }
+    .dot {
+      width: 10px; height: 10px;
+      background: #3fb950;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #3fb950;
+    }
+    .url {
+      background: #21262d;
+      padding: 6px 14px;
+      border-radius: 20px;
+      color: #58a6ff;
+      font-family: monospace;
+      font-size: 0.85rem;
+      border: 1px solid #30363d;
+      direction: ltr;
+      flex: 1;
+      min-width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .btn {
+      background: #21262d;
+      border: 1px solid #30363d;
+      color: #c9d1d9;
+      padding: 6px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    .btn:hover { background: #30363d; }
+    .btn-primary {
+      background: #238636;
+      border-color: #2ea043;
+      color: #fff;
+    }
+    .btn-primary:hover { background: #2ea043; }
     iframe {
-      position: fixed;
-      top: 0;
-      left: 0;
+      flex: 1;
       width: 100%;
-      height: 100%;
       border: 0;
       background: #fff;
     }
@@ -20,7 +71,15 @@
 </head>
 <body>
 
+  <div class="bar">
+    <span class="dot"></span>
+    <span class="url">http://51.75.118.169:20228/</span>
+    <button class="btn" onclick="document.getElementById('f').src=document.getElementById('f').src">⟳ تحديث</button>
+    <a class="btn btn-primary" href="http://51.75.118.169:20228/" target="_blank">↗ فتح خارجي</a>
+  </div>
+
   <iframe
+    id="f"
     src="http://51.75.118.169:20228/"
     allowfullscreen
     referrerpolicy="no-referrer-when-downgrade"
